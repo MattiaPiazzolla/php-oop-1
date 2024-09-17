@@ -25,11 +25,34 @@ class Movie {
     public function __construct($_title, $_cover,MovieInfo $_info) {
         $this->title = $_title;
         $this->cover = $_cover;
-        $this->title = $_info;
+        $this->info = $_info;
     }
     // definisco un metodo che mi restituisca un paragrafo con tutte le informazioni del film 
     public function printMovieInfo() {
         return"". $this->title ." ". $this->cover;
     }
 }
+
+// definisco le istanze di MovieInfo
+$info_Interstellar = new MovieInfo(
+    'Set in a dystopian future where Earth is suffering from catastrophic blight and famine, the film follows a group of astronauts who travel through a wormhole near Saturn in search of a new home for mankind. Syncopy Inc.',
+    'Sci-fi/Adventure',
+     '2014',
+     'Christopher Nolan');
+
+$info_ToyStory = new MovieInfo(
+    'A cowboy doll is profoundly threatened and jealous when a new spaceman figure supplants him as top toy in a boy\'s room.',
+    'Animation/Adventure/Comedy',
+    '1995',
+    'John Lasseter'
+);
+
+$info_Godfather = new MovieInfo(
+    'The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.',
+    'Crime/Drama',
+    '1972',
+    'Francis Ford Coppola'
+);
+
+
 ?>
