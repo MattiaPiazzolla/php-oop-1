@@ -1,0 +1,16 @@
+.card img{
+    min-width: 100%;
+    object-fit: cover;
+    aspect-ratio: 1/1.5;
+}
+
+.card{
+    height: 80vh;
+}
+
+.card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: scroll;
+}

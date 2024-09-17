@@ -1,42 +1,6 @@
 <?php 
-// definisco la classe MovieInfo per utilizzarla con construct 
-class MovieInfo {
-    public $description;
-    public $genre;
-    public $year;
-    public $director;
-    function __construct($description, array $genre, $year, $director) { 
-        $this->description = $description;
-        $this->genre = $genre;
-        $this->year = $year;
-        $this->director = $director; 
-    }
-}
-
-// definisco la classe movie 
-class Movie {
-    // dichiaro le varibili d'istanza
-    public $title;
-    public $cover;
-
-    public $info;
-
-    // definisco un costruttore
-    public function __construct($_title, $_cover,MovieInfo $_info) {
-        $this->title = $_title;
-        $this->cover = $_cover;
-        $this->info = $_info;
-    }
-    // definisco un metodo che mi restituisca un paragrafo con tutte le informazioni del film 
-    public function printMovieInfo() {
-        return "Titolo: " . $this->title . "<br>" .
-           "Copertina: <img src='". $this->cover ." alt ='cover-". $this->title ."' style='max-width: 100px; width: auto; height: auto; aspect-ratio: 1 / 1;'> <br>".
-           "Descrizione: " . $this->info->description . "<br>" .
-           "Genere: " . implode('/', $this->info->genre) . "<br>" .
-           "Anno: " . $this->info->year . "<br>" .
-           "Regista: " . $this->info->director . "<br><br>" ;
-    }
-}
+// Inclusione dei modelli
+include './class/Movie.php';
 
 // definisco le istanze di MovieInfo
 $info_Interstellar = new MovieInfo(
@@ -78,9 +42,109 @@ $toyStory = new Movie(
     $info_ToyStory
 );
 
-// Stampo le informazioni dei film
-echo $interstellar->printMovieInfo();
-echo $godfather->printMovieInfo();
-echo $toyStory->printMovieInfo();
+
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>php-oop-Movie</title>
+</head>
+
+<body>
+    <header>
+        <div class="container-fluid p-3 z-2 mb-5 bg-dark text-light">
+            <h1 class="text-center">Movie</h1>
+        </div>
+    </header>
+    <div class="container mb-5">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+            <div class="col">
+                <div class="card">
+                    <img src="<?php echo $interstellar->cover ?>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $interstellar->title ?></h5>
+                        <p class="card-text">
+                            <a href="" class=" text-decoration-none text-dark">
+
+                                <?php echo implode(' / ', $interstellar->info->genre) ?>
+                            </a>
+                        </p>
+                        <p class="card-text">
+                            <?php echo $interstellar->info->description ?>
+                        </p>
+                        <p class="card-text">
+                            <?php echo $interstellar->info->year ?>
+                        </p>
+                        <p class="card-text">
+                            <a href="" class=" text-decoration-none text-dark fw-bold">
+                                <?php echo $interstellar->info->director ?>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="<?php echo $godfather->cover ?>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $godfather->title ?></h5>
+                        <p class="card-text">
+                            <a href="" class=" text-decoration-none text-dark">
+
+                                <?php echo implode(' / ', $godfather->info->genre) ?>
+                            </a>
+                        </p>
+                        <p class="card-text">
+                            <?php echo $godfather->info->description ?>
+                        </p>
+                        <p class="card-text">
+                            <?php echo $godfather->info->year ?>
+                        </p>
+                        <p class="card-text">
+                            <a href="" class=" text-decoration-none text-dark fw-bold">
+                                <?php echo $godfather->info->director ?>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="<?php echo $toyStory->cover ?>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $toyStory->title ?></h5>
+                        <p class="card-text">
+                            <a href="" class=" text-decoration-none text-dark">
+
+                                <?php echo implode(' / ', $toyStory->info->genre) ?>
+                            </a>
+                        </p>
+                        <p class="card-text">
+                            <?php echo $toyStory->info->description ?>
+                        </p>
+                        <p class="card-text">
+                            <?php echo $toyStory->info->year ?>
+                        </p>
+                        <p class="card-text">
+                            <a href="" class=" text-decoration-none text-dark fw-bold">
+                                <?php echo $toyStory->info->director ?>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
