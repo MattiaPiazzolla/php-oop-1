@@ -29,7 +29,8 @@ class Movie {
     }
     // definisco un metodo che mi restituisca un paragrafo con tutte le informazioni del film 
     public function printMovieInfo() {
-        return"". $this->title ." ". $this->cover;
+        return "Titolo: " . $this->title . "<br>" .
+           "Copertina: <img src='". $this->cover ." alt ='cover-". $this->title ."' style='max-width: 100px; width: auto; height: auto; aspect-ratio: 1 / 1;'> <br>" ;
     }
 }
 
@@ -58,7 +59,7 @@ $info_Godfather = new MovieInfo(
 // definisco le istanze di movie 
 $interstellar = new Movie(
     "Interstellar",
-    "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRf61mker2o4KH3CbVE7Zw5B1-VogMH8LfZHEaq3UdCMLxARZAB",
+    "https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg",
     $info_Interstellar
 );
 $godfather = new Movie(
@@ -72,4 +73,10 @@ $toyStory = new Movie(
     "https://m.media-amazon.com/images/M/MV5BMDU2ZWJlMjktMTRhMy00ZTA5LWEzNDgtYmNmZTEwZTViZWJkXkEyXkFqcGdeQXVyNDQ2OTk4MzI@._V1_.jpg",
     $info_ToyStory
 );
+
+// Stampo le informazioni dei film
+echo $interstellar->printMovieInfo();
+echo $godfather->printMovieInfo();
+echo $toyStory->printMovieInfo();
+
 ?>
