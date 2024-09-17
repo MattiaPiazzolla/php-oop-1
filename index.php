@@ -55,4 +55,21 @@ $info_Godfather = new MovieInfo(
 );
 
 
+// definisco le istanze di movie 
+$interstellar = new Movie(
+    "Interstellar",
+    "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRf61mker2o4KH3CbVE7Zw5B1-VogMH8LfZHEaq3UdCMLxARZAB",
+    $info_Interstellar
+);
+$godfather = new Movie(
+    "The Godfather",
+    "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX1000_.jpg",
+    $info_Godfather
+);
+
+$toyStory = new Movie(
+    "Toy Story",
+    "https://m.media-amazon.com/images/M/MV5BMDU2ZWJlMjktMTRhMy00ZTA5LWEzNDgtYmNmZTEwZTViZWJkXkEyXkFqcGdeQXVyNDQ2OTk4MzI@._V1_.jpg",
+    $info_ToyStory
+);
 ?>
