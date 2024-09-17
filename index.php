@@ -27,5 +27,9 @@ class Movie {
         $this->cover = $_cover;
         $this->title = $_info;
     }
+    // definisco un metodo che mi restituisca un paragrafo con tutte le informazioni del film 
+    public function printMovieInfo() {
+        return"". $this->title ." ". $this->cover;
+    }
 }
 ?>
