@@ -5,7 +5,7 @@ class MovieInfo {
     public $genre;
     public $year;
     public $director;
-    function __construct($description, $genre, $year, $director) { 
+    function __construct($description, array $genre, $year, $director) { 
         $this->description = $description;
         $this->genre = $genre;
         $this->year = $year;
@@ -30,27 +30,31 @@ class Movie {
     // definisco un metodo che mi restituisca un paragrafo con tutte le informazioni del film 
     public function printMovieInfo() {
         return "Titolo: " . $this->title . "<br>" .
-           "Copertina: <img src='". $this->cover ." alt ='cover-". $this->title ."' style='max-width: 100px; width: auto; height: auto; aspect-ratio: 1 / 1;'> <br>" ;
+           "Copertina: <img src='". $this->cover ." alt ='cover-". $this->title ."' style='max-width: 100px; width: auto; height: auto; aspect-ratio: 1 / 1;'> <br>".
+           "Descrizione: " . $this->info->description . "<br>" .
+           "Genere: " . implode('/', $this->info->genre) . "<br>" .
+           "Anno: " . $this->info->year . "<br>" .
+           "Regista: " . $this->info->director . "<br><br>" ;
     }
 }
 
 // definisco le istanze di MovieInfo
 $info_Interstellar = new MovieInfo(
     'Set in a dystopian future where Earth is suffering from catastrophic blight and famine, the film follows a group of astronauts who travel through a wormhole near Saturn in search of a new home for mankind. Syncopy Inc.',
-    'Sci-fi/Adventure',
+    ['Sci-fi', 'Adventure'],
      '2014',
      'Christopher Nolan');
 
 $info_ToyStory = new MovieInfo(
     'A cowboy doll is profoundly threatened and jealous when a new spaceman figure supplants him as top toy in a boy\'s room.',
-    'Animation/Adventure/Comedy',
+    ['Animation', 'Adventure', 'Comedy'],
     '1995',
     'John Lasseter'
 );
 
 $info_Godfather = new MovieInfo(
     'The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.',
-    'Crime/Drama',
+    ['Crime', 'Drama'],
     '1972',
     'Francis Ford Coppola'
 );
